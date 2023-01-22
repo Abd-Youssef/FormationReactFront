@@ -2,10 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export default function Input(props) {
+    let className = ["default-input "]
+    if (props.className) {
+        className.push(props.className)
+        
+    }
   return (
-    <>
+    <div className='space-between align-center flex  py-0'>
         {props.label &&<label>{props.label}</label>}
-        <input  className ={props.className}
+        <input  className ={className.join(' ')}
+                type = {props.type}
                 value={props.value}
                 name = {props.name}
                 id = {props.id}
@@ -13,11 +19,12 @@ export default function Input(props) {
                 onChange ={props.onChange}
                 
                 />
-    </>
+    </div>
   )
 }
   Input.defaultProps= {
-    className :"input",
+    type:"String",
+    className :"",
     value : "",
     name : "",
     id : "",
@@ -26,6 +33,7 @@ export default function Input(props) {
     
   }
   Input.propTypes = {
+    type:PropTypes.string ,
     label: PropTypes.string ,
     value : PropTypes.string ,
     name : PropTypes.string ,

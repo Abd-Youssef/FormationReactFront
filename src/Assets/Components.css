@@ -1,6 +1,80 @@
-.btn {
+.default-button {
     margin : 20px ;
 }
-.input{
+.default-input{
     margin: 10px;
+}
+#root{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
+
+}
+.navbar{
+    height: 48px;
+    background-color: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2)0px 3px 5px 4px;
+}
+.px-16{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.py-16{
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+.py-0{
+    padding-top: 0px;
+    padding-bottom: 0px ;
+}
+.flex{
+    display: flex;
+}
+.align-center{
+
+    align-items: center;
+}
+.footer{
+    height: 48px;
+    background-color: rgb(238, 236, 195);
+    
+}
+.page-content{
+    flex-grow: 1;
+}
+.pd-16{
+    padding: 16px;
+}
+.space-between{
+    justify-content: space-between;
+}
+.center{
+    justify-content: center;
+}
+.card-sign{
+    width: 50%;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+}
+.card{
+    width:300px;
+    height: 200px;
+    border: 1px solid black;
+}
+.m-16{
+    margin: 16px;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.product{
+    width: 1;
+}
+@media  (max-width:800px ){
+    .footer{
+        height: 30px;
+    }
+    
 }

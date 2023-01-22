@@ -2,9 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export default function Button(props) {
+    let className = ["default-button"]
+    if (props.className) {
+        className.push(props.className)
+        
+    }
   return (
     <>
-    <button className={props.className} onClick={props.onClick}  >{props.name}</button>
+    <button className={className.join(' ')} onClick={props.onClick}  >{props.name}</button>
     </>
   )
 }
