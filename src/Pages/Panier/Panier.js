@@ -9,7 +9,7 @@ export default function Panier() {
   return (
     
     <div className="flex flex-wrap product" >
-        {panier.data.map((el, index) => ( console.log(index , ":" ,el),
+        {panier.data.map((el, index) => ( 
           <Card
             key={index}
             price={el.price}

@@ -8,8 +8,8 @@ export default function Input(props) {
         
     }
   return (
-    <div className='space-between align-center flex  py-0'>
-        {props.label &&<label>{props.label}</label>}
+    <div className='space-between py-0 width-100'>
+        {props.label &&<label className ="form-label "  >{props.label}</label>}
         <input  className ={className.join(' ')}
                 type = {props.type}
                 value={props.value}

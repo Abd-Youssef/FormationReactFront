@@ -5,11 +5,13 @@ import storageLocal from "redux-persist/lib/storage";
 import authReducer from "./Reducers/authReducer";
 import settingReducer from "./Reducers/settingReducer";
 import panierReducer from "./Reducers/panierReducer";
+import searchReducer from "./Reducers/searchReducer";
+
 const persistConfig = {
   key: "root",
   timeout: null,
   storage: storageLocal,
-  whitelist: ["auth","setting","panier"],
+  whitelist: ["auth","setting","panier","search"],
   blacklist: [],
 };
 const composeEnhancers =
@@ -21,6 +23,7 @@ const reducers = combineReducers({
     auth : authReducer,
     setting: settingReducer,
     panier: panierReducer,
+    search: searchReducer,
 });
 const persistedReducers = persistReducer(persistConfig, reducers);
 const STORE = createStore(persistedReducers, enhancer);

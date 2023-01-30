@@ -1,10 +1,12 @@
 .default-button {
-    margin : 20px ;
+    margin: 20px;
 }
-.default-input{
-    margin: 10px;
+
+.default-input {
+    padding: 6px 0;
 }
-#root{
+
+#root {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -12,69 +14,266 @@
     justify-content: center; */
 
 }
-.navbar{
-    height: 48px;
+
+.navbar {
+    height: 60;
     background-color: #fff;
     box-shadow: rgba(100, 100, 111, 0.2)0px 3px 5px 4px;
 }
-.px-16{
+
+.navbarFont {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.px-16 {
     padding-left: 16px;
     padding-right: 16px;
 }
-.py-16{
+
+.px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.px-4 {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.py-16 {
     padding-top: 16px;
     padding-bottom: 16px;
 }
-.py-0{
+
+.py-0 {
     padding-top: 0px;
-    padding-bottom: 0px ;
+    padding-bottom: 0px;
 }
-.flex{
+.py-4{
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.m-16 {
+    margin: 16px;
+}
+
+.m-0 {
+    margin: 0px;
+}
+.m-4 {
+    margin: 4px;
+}
+.block {
+    display: block;
+}
+.flex {
     display: flex;
 }
-.align-center{
+
+.align-center {
 
     align-items: center;
 }
-.footer{
-    height: 48px;
-    background-color: rgb(238, 236, 195);
-    
+.text-center{
+    text-align: center;
 }
-.page-content{
-    flex-grow: 1;
-}
-.pd-16{
-    padding: 16px;
-}
-.space-between{
-    justify-content: space-between;
-}
-.center{
+
+.justify-content {
     justify-content: center;
 }
-.card-sign{
-    width: 50%;
+
+.footer {
+    height: 48px;
+    background-color: rgb(238, 236, 195);
+
+}
+
+.page-content {
+    flex-grow: 1;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.center {
+    justify-content: center;
+}
+
+.card-sign {
+    width: 300px;
     flex-direction: column;
+
+}
+
+.shadow {
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
 }
-.card{
-    width:300px;
-    height: 200px;
+.relative{
+    position: relative;
+}
+.bottom{
+    position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.card {
+    width: 28%;
+    height: 400px;
     border: 1px solid black;
+    box-sizing: border-box;
+      float: left;
+      text-align: center;
+      border-radius:10px;
+      padding-top: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: .4s;
 }
-.m-16{
-    margin: 16px;
-}
-.flex-wrap{
+.card:hover{
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+    transform: scale(1.1, 1.1);
+        transition: .6s;
+    }
+
+.flex-wrap {
     flex-wrap: wrap;
 }
-.product{
+
+.product {
     width: 1;
 }
-@media  (max-width:800px ){
-    .footer{
+
+.width-100 {
+    width: 100%;
+}
+.width-50 {
+    width: 50%;
+}
+
+.height-100 {
+    height: 100%;
+}
+.height-50{
+    height: 50px;
+}
+
+.form-label {
+    display: block;
+    padding-left: 2px;
+    padding-bottom: 2px;
+    font-weight: 700;
+    font-size: 13px;
+    color: #111;
+}
+
+.bg-gold {
+    background: #f0c14b;
+}
+
+.button-border {
+    border-color: #a88734;
+    border-radius: 3px;
+    border-color: #adb1b8 #a2a6ac #8d9096;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.button-font {
+    font-size: 100%;
+}
+
+.h {
+    font-family: a;
+    margin: 0px;
+}
+
+.input-border {
+    border: 1px solid #a6a6a6;
+    border-top-color: #949494;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 50%), 0 1px 0 rgb(0 0 0 / 7%) inset;
+    outline: 0;
+}
+
+.a-divider {
+    text-align: center;
+    position: relative;
+    top: 2px;
+    padding-top: 1px;
+    margin-bottom: 14px;
+    line-height: 0;
+}
+
+.blue {
+    background-color: #131921;
+}
+.blueFont {
+    color: #131921;
+}
+.orange{
+    color: #f08804;
+}
+
+.dropdown {
+    list-style: none;
+}
+
+.dropdown ul li {
+    background-color: #131921;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    float: right;
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown ul li:hover {
+    border: #fff solid 0.5px;
+    border-radius: 3px;
+
+}
+
+.dropdown ul ul {
+    display: none;
+}
+
+.dropdown ul :hover>ul {
+    display: block;
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+}
+.hover:hover{
+    border: #fff solid 0.5px;
+    border-radius: 3px;
+}
+.searchTerm:focus{
+    font-size: 15px;
+    border: #f08804 solid 2px;
+    width: 200px;
+  }
+.b1{
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+    border:0px;
+    outline: none;
+    cursor: pointer;
+    margin-top: 5px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    }
+
+@media (max-width:800px) {
+    .footer {
         height: 30px;
     }
-    
+
 }
