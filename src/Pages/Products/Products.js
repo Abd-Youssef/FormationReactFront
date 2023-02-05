@@ -24,12 +24,9 @@ export default function Products() {
   };
   useEffect(() => {
     if (search.searching) {
-      console.log("hi");
       setData(search.data);
     } else {
       getProducts();
-      console.log("salem");
-
     }
     console.log("mount");
     console.log("data", data);
@@ -51,7 +48,7 @@ export default function Products() {
             name={el.name}
             description={el.description}
             stock={
-              panier.filter((el2) => el._id == el2._id).length ? el.stock : 0
+              panier.filter((el2) => el._id == el2._id).length ? el.stock : el.stock
             }
             onClick={() => dispatch(AddItem(el))}
             add={() => dispatch(IncrementProduct(el))}

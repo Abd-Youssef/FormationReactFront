@@ -43,10 +43,10 @@ const DesincrementProduct = (data) => {
     data: data,
   };
 };
-const ClearProduct = (data) => {
+const ClearProduct = () => {
   return {
     type: "CLEAR_PANIER",
-    data: data,
+   // data: data,
   };
 };
 export {

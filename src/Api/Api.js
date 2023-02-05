@@ -47,10 +47,24 @@ const showProduct = async ()=> {
     return response.json() ;
   
 }
+const addCommand = async (body)=>{
+    const response = await fetch ( apiUrl+"command/add",{
+        method: "POST",
+        body:body,
+        headers:{
+            ...headers,
+            "Authorization":"Bearer "+getToken(),
+        }    
+    })
+
+    return response.json() ;
+
+}
 
 export {
     signUp,
     signIn,   
     addProduct, 
     showProduct,
+    addCommand,
 }
