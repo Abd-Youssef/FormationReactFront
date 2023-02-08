@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { showProduct } from "../../Api/Api";
 import Button from "../../Components/Button/Button";
 import Card from "../../Components/Card/Card";
+import Filter from "../../Components/Filter/Filter";
+import NavPages from "../../Components/NavPages/NavPages";
 import {
   AddItem,
   DesincrementProduct,
@@ -15,6 +17,7 @@ export default function Products() {
   const [data, setData] = useState([]);
   const panier = useSelector((state) => state.panier.data);
   const ref = useRef();
+  console.log("heelo");
   console.log("search produit", search);
   const getProducts = async () => {
     const response = await showProduct();
@@ -23,13 +26,14 @@ export default function Products() {
     }
   };
   useEffect(() => {
+      getProducts();
+  }, []);
+  useEffect(() => {
     if (search.searching) {
       setData(search.data);
     } else {
-      getProducts();
     }
     console.log("mount");
-    console.log("data", data);
   }, [search.data]);
   const goToTop = () => {
     ref.current.scrollIntoView({
@@ -40,24 +44,37 @@ export default function Products() {
 
   return (
     <>
-      <div className="flex flex-wrap align-center justify-content product width-100 " ref={ref}>
-        {data.map((el, index) => (
-          <Card
-            key={index}
-            price={el.price}
-            name={el.name}
-            description={el.description}
-            stock={
-              panier.filter((el2) => el._id == el2._id).length ? el.stock : el.stock
-            }
-            onClick={() => dispatch(AddItem(el))}
-            add={() => dispatch(IncrementProduct(el))}
-            minus={() => dispatch(DesincrementProduct(el))}
-            exist={
-              panier.filter((el2) => el._id == el2._id).length ? true : false
-            }
-          />
-        ))}
+      <div className="flex">
+        <Filter />
+        <div className="width-100 ">
+          <NavPages data={data} />
+          <div
+            className="flex flex-wrap align-center justify-content product width-100 "
+            ref={ref}
+          >
+            {data.map((el, index) => (
+              <Card
+                key={index}
+                price={el.price}
+                name={el.name}
+                description={el.description}
+                stock={
+                  panier.filter((el2) => el._id === el2._id).length
+                    ? el.stock
+                    : el.stock
+                }
+                onClick={() => dispatch(AddItem(el))}
+                add={() => dispatch(IncrementProduct(el))}
+                minus={() => dispatch(DesincrementProduct(el))}
+                exist={
+                  panier.filter((el2) => el._id === el2._id).length
+                    ? true
+                    : false
+                }
+              />
+            ))}
+          </div>
+        </div>
       </div>
       <Button name={"up"} onClick={goToTop} />
     </>

@@ -4,6 +4,18 @@ const SetUser = (data) => {
     data: data,
   };
 };
+const SortAscendingProduct = (data) => {
+  return {
+    type: "SORT_PRODUCT_PRICE_ASCENDING",
+    data: data,
+  };
+};
+const SortDecreasingProduct = (data) => {
+  return {
+    type: "SORT_PRODUCT_PRICE_DECREASING",
+    data: data,
+  };
+};
 
 const searchProduct = (data, search) => {
   return {
@@ -58,4 +70,7 @@ export {
   DesincrementProduct,
   ClearProduct,
   searchProduct,
+  SortAscendingProduct,
+  SortDecreasingProduct,
+   
 };

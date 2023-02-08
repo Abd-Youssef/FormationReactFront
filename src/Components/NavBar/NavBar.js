@@ -19,7 +19,7 @@ export default function NavBar() {
   return (
     <div
       id="navbar"
-      className="navbar space-between align-center flex blue  py-0 navbarFont "
+      className="navbar space-between align-center flex bg-blue  py-0 navbarFont "
     >
       <Link
           to={"/dashboard"}
@@ -75,7 +75,7 @@ export default function NavBar() {
               <ul class="dropdown-menu py-0 px-0 m-0 ">
                 <li class="line-height-3">
                   <Button
-                    className="width-100 height-100 blue navbarFont m-0 "
+                    className="width-100 height-100 bg-blue navbarFont m-0 "
                     name={"Français"}
                     onClick={() =>
                       dispatch(SetLang({ lang: lang === "an" ? "fr" : "fr" }))
@@ -84,7 +84,7 @@ export default function NavBar() {
                 </li>
                 <li>
                   <Button
-                  className="width-100 height-100 blue navbarFont m-0 "
+                  className="width-100 height-100 bg-blue navbarFont m-0 "
                     name={"English"}
                     onClick={() =>
                       dispatch(SetLang({ lang: lang === "fr" ? "an" : "an" }))
@@ -104,7 +104,7 @@ export default function NavBar() {
                 <li></li>
                 <li>
                   <Button
-                    className="width-100 height-100 blue navbarFont m-0 "
+                    className="width-100 height-100 bg-blue navbarFont m-0 "
 
                     name={"Log Out"}
                     onClick={() =>
@@ -126,7 +126,7 @@ export default function NavBar() {
             <Link to={"/panier"}>
               <img src={panierImg} height={"36px"} width={"36px"}></img>
               <div
-                className="blue"
+                className="bg-blue"
                 style={{
                   width: "16px",
                   height: "16px",

@@ -11,6 +11,16 @@ const searchReducer = (state = initialState, { type, data ,searchTerm }) => {
         data: list,
         searching: true,
       };
+    case "SORT_PRODUCT_PRICE_ASCENDING":
+      list = data.sort((a, b) => a.price - b.price)
+    return{
+      data:list
+    }
+    case "SORT_PRODUCT_PRICE_DECREASING":
+      list = data.sort((a, b) => b.price - a.price)
+    return{
+      data:list
+    }
     default:
       return {
         data: list,

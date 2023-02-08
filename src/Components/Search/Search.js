@@ -16,7 +16,6 @@ function Search() {
   };
   useEffect(() => {
     getProducts();
-    console.log("search",data);
   }, []);
   const onChange = (e) => {
     setSearchTerm(e.target.value);

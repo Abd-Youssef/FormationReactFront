@@ -5,7 +5,6 @@ import Button from "../Button/Button";
 import product from "../../Assets/product.png";
 
 function Card(props) {
-  console.log(props.name, props.stock);
   return (
     <div className="card flex space-between  column-direction m-16 ">
       <div className="overflow">
@@ -31,10 +30,11 @@ function Card(props) {
       {!props.exist && (
         <div className="width-100  m-0 relative">
           <Button
-            className="width-100 height-100 m-0 px-16 py-16 b1 blue  "
+            className={(props.stock>0) ? "width-100 height-100 m-0 px-16 py-16 b1 bg-blue" : "width-100 height-100 m-0 px-16 py-16 b1 bg-gold"  }
+
             name="Commander"
             onClick={props.onClick}
-            disabled={(props.stock>0) ? false : true }
+            disabled={(props.stock>0) ? false : true  }
             
           />
         </div>
