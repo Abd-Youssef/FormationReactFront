@@ -13,7 +13,7 @@ function PrivateRoute(props) {
       <LangContext.Provider value={LANG[lang]}>
         {/* <Button name={"Lang"} onClick={() => setLang (lang === "fr" ? "an" : "fr")}/> */}
         <NavBar />
-        <div className="page-content px-16">
+        <div className="page-content px-16 py-16 ">
           {props.role === user.role || !props.role ? props.component : null}
         </div>
         <Footer />

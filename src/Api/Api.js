@@ -47,6 +47,17 @@ const showProduct = async ()=> {
     return response.json() ;
   
 }
+const getProduct = async (id)=> {
+    const response = await fetch ( apiUrl+"product/find/"+id,{
+        method: "GET",
+        headers:{
+            ...headers,
+            "Authorization":"Bearer "+getToken(),
+        }    
+    })
+    return response.json() ;
+  
+}
 const addCommand = async (body)=>{
     const response = await fetch ( apiUrl+"command/add",{
         method: "POST",
@@ -67,4 +78,5 @@ export {
     addProduct, 
     showProduct,
     addCommand,
+    getProduct,
 }

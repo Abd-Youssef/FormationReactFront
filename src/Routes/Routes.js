@@ -8,6 +8,7 @@ import {
 import AddProduct from "../Pages/AddProduct/AddProduct";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Panier from "../Pages/Panier/Panier";
+import Product from "../Pages/Product/Product";
 import Products from "../Pages/Products/Products";
 import { SignIn } from "../Pages/SignIn/SignIn";
 import { SignUp } from "../Pages/SignUp/SignUp";
@@ -20,6 +21,7 @@ function Routes(props) {
   return (
     <BrowserRouter>
       <ComponentRoutes>
+      
         <Route path="/" element={<PublicRoute component={<SignIn />} />} />
         <Route
           path="/signup"
@@ -40,6 +42,10 @@ function Routes(props) {
         <Route
           path="/product/add"
           element={<PrivateRoute role={"admin"} component={<AddProduct />} />}
+        />
+        <Route
+          path="/product/:id"
+          element={<PrivateRoute  component={<Product />} />}
         />
         <Route
           path="/panier"

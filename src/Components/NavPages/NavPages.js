@@ -25,7 +25,7 @@ function NavPages(props) {
   };
 
   return (
-    <div className=" height-50 space-between bg-light  m-16 border">
+    <div className=" height-50px space-between bg-light  m-16 border">
       <div className="flex align-center height-100 ">
         <span className="blue m-16 ">Trier par</span>
         <select

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { showProduct } from "../../Api/Api";
 import Button from "../../Components/Button/Button";
 import Card from "../../Components/Card/Card";
@@ -17,8 +18,6 @@ export default function Products() {
   const [data, setData] = useState([]);
   const panier = useSelector((state) => state.panier.data);
   const ref = useRef();
-  console.log("heelo");
-  console.log("search produit", search);
   const getProducts = async () => {
     const response = await showProduct();
     if (response.status === 200) {
@@ -54,6 +53,7 @@ export default function Products() {
           >
             {data.map((el, index) => (
               <Card
+                link={`${el._id}`}
                 key={index}
                 price={el.price}
                 name={el.name}
@@ -71,7 +71,8 @@ export default function Products() {
                     ? true
                     : false
                 }
-              />
+              >
+              </Card>
             ))}
           </div>
         </div>

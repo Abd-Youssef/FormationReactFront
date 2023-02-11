@@ -21,14 +21,11 @@ export default function NavBar() {
       id="navbar"
       className="navbar space-between align-center flex bg-blue  py-0 navbarFont "
     >
-      <Link
-          to={"/dashboard"}
-          className="py-16 px-16"
-        >
-          <img src={amazonPng} height={"25px"} width={"128px"}></img>
-        </Link>
+      <Link to={"/dashboard"} className="py-16 px-16">
+        <img src={amazonPng} height={"25px"} width={"128px"}></img>
+      </Link>
 
-      <div id="nav-pages" className="nav-pages flex height-50 ">
+      <div id="nav-pages" className="nav-pages flex height-50px ">
         <Link
           to={"/dashboard"}
           className="Link flex align-center  px-16 navbarFont hover "
@@ -52,7 +49,11 @@ export default function NavBar() {
         <div id="account" className="dropdown ">
           <ul>
             <li>
-              <A name={"Categories"} onClick={() => dispatch()} />
+              <Button
+                className="width-100 height-100 bg-blue navbarFont m-0 border "
+                name={"Categories"}
+                onClick={() => dispatch()}
+              />
               <ul className="dropdown-menu">
                 <li></li>
                 <li></li>
@@ -84,7 +85,7 @@ export default function NavBar() {
                 </li>
                 <li>
                   <Button
-                  className="width-100 height-100 bg-blue navbarFont m-0 "
+                    className="width-100 height-100 bg-blue navbarFont m-0 "
                     name={"English"}
                     onClick={() =>
                       dispatch(SetLang({ lang: lang === "fr" ? "an" : "an" }))
@@ -98,14 +99,17 @@ export default function NavBar() {
         <div id="account" className="dropdown ">
           <ul>
             <li>
-              <A name={"Account"} onClick={() => dispatch()} />
+              <Button
+                className="width-100 height-100 bg-blue navbarFont m-0 border "
+                name={"Account"}
+                onClick={() => dispatch()}
+              />
               <ul className="dropdown-menu">
                 <li></li>
                 <li></li>
                 <li>
                   <Button
                     className="width-100 height-100 bg-blue navbarFont m-0 "
-
                     name={"Log Out"}
                     onClick={() =>
                       dispatch(SetUser({ user: null, token: null }))
