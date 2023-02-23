@@ -4,6 +4,13 @@ const SetUser = (data) => {
     data: data,
   };
 };
+const SameCategoryProduct = (data,event) => {
+  return {
+    type: "SAME_CATEGORY_PRODUCT",
+    data: data,
+    searchTerm:event,
+  };
+};
 const SortAscendingProduct = (data) => {
   return {
     type: "SORT_PRODUCT_PRICE_ASCENDING",
@@ -72,5 +79,6 @@ export {
   searchProduct,
   SortAscendingProduct,
   SortDecreasingProduct,
+  SameCategoryProduct,
    
 };

@@ -5,7 +5,7 @@ import { LangContext } from "../../Contexte/langContexte";
 import { SetLang, SetUser } from "../../Redux/Action";
 import Button from "../Button/Button";
 import panierImg from "../../Assets/panier.png";
-import amazonPng from "../../Assets/amazon2.png";
+import amazonPng from "../../Assets/amazon3.png";
 import Search from "../Search/Search";
 import A from "../A/A";
 
@@ -22,7 +22,7 @@ export default function NavBar() {
       className="navbar space-between align-center flex bg-blue  py-0 navbarFont "
     >
       <Link to={"/dashboard"} className="py-16 px-16">
-        <img src={amazonPng} height={"25px"} width={"128px"}></img>
+        <img src={amazonPng} height={"35px"} width={"135px"}></img>
       </Link>
 
       <div id="nav-pages" className="nav-pages flex height-50px ">
@@ -46,7 +46,7 @@ export default function NavBar() {
             <span> {langList.addproducts}</span>
           </Link>
         )}
-        <div id="account" className="dropdown ">
+        {/* <div id="account" className="dropdown ">
           <ul>
             <li>
               <Button
@@ -61,12 +61,12 @@ export default function NavBar() {
               </ul>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
 
-      <div id="nav-search" className="width-100">
+      {/* <div id="nav-search" className="width-100">
         <Search />
-      </div>
+      </div> */}
 
       <div id="nav-account" className="flex align-center  ">
         <div id="lang" className="dropdown  ">

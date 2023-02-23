@@ -74,9 +74,22 @@ a{
 .m-16 {
     margin: 16px;
 }
+.mx-16 {
+    margin-right: 16px;
+    margin-left: 16px;
+
+}
+.my-16 {
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+}
 
 .m-0 {
     margin: 0px;
+}
+.m-2 {
+    margin: 2px;
 }
 
 .m-4 {
@@ -97,6 +110,9 @@ a{
 
 .align-center {
     align-items: center;
+}
+.align-start{
+    align-items: flex-start;
 }
 
 .text-center {
@@ -126,6 +142,9 @@ a{
 
 .space-between {
     justify-content: space-between;
+}
+.space-evenly{
+    justify-content: space-evenly;
 }
 
 .center {
@@ -173,7 +192,7 @@ a{
 
 }
 .border-up{
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0 0;   
 
 }
 
@@ -203,6 +222,9 @@ a{
 }
 .width-75 {
     width: 75%;
+}
+.width-90 {
+    width: 90%;
 }
 .width-100 {
     width: 100%;
@@ -345,7 +367,6 @@ ul {
 .searchTerm:focus {
     font-size: 15px;
     border: #f08804 solid 2px;
-    width: 200px;
 }
 .button{
     text-align: center;

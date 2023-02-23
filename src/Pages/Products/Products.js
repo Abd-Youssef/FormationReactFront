@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { showProduct } from "../../Api/Api";
+import { showCategories, showProduct } from "../../Api/Api";
 import Button from "../../Components/Button/Button";
 import Card from "../../Components/Card/Card";
 import Filter from "../../Components/Filter/Filter";
@@ -15,24 +15,34 @@ import {
 export default function Products() {
   const search = useSelector((state) => state.search);
   const dispatch = useDispatch();
-  const [data, setData] = useState([]);
   const panier = useSelector((state) => state.panier.data);
   const ref = useRef();
+  const [TemporeryData, setTemporeryData] = useState([]);
+  //Products
+  const [data, setData] = useState([]);
   const getProducts = async () => {
     const response = await showProduct();
     if (response.status === 200) {
       setData(response.data);
+      setTemporeryData(response.data);
     }
   };
+  //categories :
+  const [categories, setCategories] = useState([]);
+  const getCategories = async () => {
+    const response = await showCategories();
+    if (response.status === 200) {
+      setCategories(response.data);
+    }
+  };
+
   useEffect(() => {
-      getProducts();
+    getProducts();
+    getCategories();
   }, []);
   useEffect(() => {
-    if (search.searching) {
-      setData(search.data);
-    } else {
-    }
-    console.log("mount");
+    console.log("mount", TemporeryData);
+    setTemporeryData(search.data);
   }, [search.data]);
   const goToTop = () => {
     ref.current.scrollIntoView({
@@ -43,15 +53,19 @@ export default function Products() {
 
   return (
     <>
-      <div className="flex">
-        <Filter />
+      <div className="flex m-16">
+        <Filter
+          data={data}
+          TemporeryData={TemporeryData}
+          categories={categories}
+        />
         <div className="width-100 ">
-          <NavPages data={data} />
+          <NavPages data={TemporeryData} />
           <div
             className="flex flex-wrap align-center justify-content product width-100 "
             ref={ref}
           >
-            {data.map((el, index) => (
+            {TemporeryData.map((el, index) => (
               <Card
                 link={`${el._id}`}
                 key={index}
@@ -71,8 +85,7 @@ export default function Products() {
                     ? true
                     : false
                 }
-              >
-              </Card>
+              ></Card>
             ))}
           </div>
         </div>

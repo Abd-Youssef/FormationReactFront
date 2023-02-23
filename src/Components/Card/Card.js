@@ -10,9 +10,9 @@ function Card(props) {
     <div className="card flex space-between  column-direction m-16 ">
       <Link to={props.link} className="overflow">
         <img src={product} className="width-50 overflow" />
-        {props.name && <h1 className="m-4 blueFont"> {props.name}</h1>}
-        {props.description && <p className="m-4"> {props.description}</p>}
-        {props.price && <h2 className="m-4">{props.price} DT</h2>}
+        {props.name && <h3 className="m-4 blueFont"> {props.name}</h3>}
+        {/* {props.description && <p className="m-4"> {props.description}</p>} */}
+        {props.price && <h2 className="m-4 ">{props.price} DT</h2>}
         {props.stock>0 && (
           <p className="m-4">
             <b style={{ color: "red" }}>{props.stock} </b>piéce disponible

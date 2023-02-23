@@ -31,7 +31,7 @@ function Product() {
           </div>
           <div className=" flex  column-direction space-between width-50 overflow px-16 py-16 ">
             <div className=" justify-content align-center  ">
-              <h1 className="m-4 blueFont py-16"> {data.name}</h1>
+              <h3 className="m-4 blueFont py-16"> {data.name}</h3>
               <p className="m-4">{data.category}</p>
               {data.stock == 0 ? (
                 <p className="m-4">
