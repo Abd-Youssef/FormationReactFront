@@ -11,7 +11,7 @@ function Product() {
   const [data, setData] = useState([]);
   const { id } = useParams();
   const dispatch = useDispatch();
-
+  const [stateSuccess, setstateSuccess] = useState();
   const getSingleProduct = async () => {
     const response = await getProduct(id);
     if (response.status === 200) {
@@ -24,7 +24,20 @@ function Product() {
   console.log("data", data);
   return (
     <div>
-      <div className="flex  justify-content ">
+      <div className="flex  justify-content column-direction  align-center">
+      {stateSuccess == true ? (
+        <div
+          className={
+            "flex  justify-content align-center  mx-16 bg-green border width-50 height-50px"
+          }
+        >
+          <label className="white">
+            SUCCESS : le produit est ajouté aux <b>PANIER</b> avec succés{" "}
+          </label>
+        </div>
+      ) : (
+        <></>
+      )}
         <div className="flex width-75 height-100 border  m-16  ">
           <div className=" flex justify-content align-center width-50  overflow px-16 py-16 bg-light ">
             <img src={product} className="width-75 hover " />
@@ -58,9 +71,9 @@ function Product() {
                   ? " m-0 px-16 py-16 button bg-green"
                   : "m-0 px-16 py-16 button bg-gold"
               }
-              name={data.stock > 0 ? "Ajouter au panier" : "Epuisé"}
-              onClick={() => dispatch(AddItem(data))}
-              disabled={data.stock > 0 ? false : true}
+              name={data.stock > 0 && stateSuccess != true  ? "Ajouter au panier" :(stateSuccess == true ? "Produit ajouté aux panier":"Epuisé") }
+              onClick={() => {dispatch(AddItem(data)); setstateSuccess(true)}}
+              disabled={data.stock > 0 && stateSuccess != true ? false : true}
             />
           </div>
         </div>
