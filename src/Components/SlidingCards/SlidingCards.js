@@ -65,7 +65,6 @@ function SlidingCards(props) {
           key={index}
           price={el.price}
           name={el.name}
-          description={el.description}
           stock={
             panier.filter((el2) => el._id === el2._id).length
               ? el.stock

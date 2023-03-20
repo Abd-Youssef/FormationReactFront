@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams,useLocation} from "react-router-dom";
 import { getProduct } from "../../Api/Api";
 import product from "../../Assets/product.png";
 import Button from "../../Components/Button/Button";
@@ -18,14 +18,19 @@ function Product() {
       setData(response.data);
     }
   };
+
+  const location = useLocation();
+
   useEffect(() => {
     getSingleProduct();
-  }, []);
-  console.log("data", data);
+  }, [location]);
+
+
+  
   return (
     <div>
       <div className="flex  justify-content column-direction  align-center">
-      {stateSuccess == true ? (
+      {stateSuccess === true ? (
         <div
           className={
             "flex  justify-content align-center  mx-16 bg-green border width-50 height-50px"
@@ -46,7 +51,7 @@ function Product() {
             <div className=" justify-content align-center  ">
               <h3 className="m-4 blueFont py-16"> {data.name}</h3>
               <p className="m-4">{data.category}</p>
-              {data.stock == 0 ? (
+              {data.stock === 0 ? (
                 <p className="m-4">
                   <b className="m-4 red">Out Of Stock </b>
                 </p>

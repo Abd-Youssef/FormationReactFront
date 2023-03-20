@@ -21,7 +21,6 @@ function Routes(props) {
   return (
     <BrowserRouter>
       <ComponentRoutes>
-      
         <Route path="/" element={<PublicRoute component={<SignIn />} />} />
         <Route
           path="/signup"
@@ -44,12 +43,13 @@ function Routes(props) {
           element={<PrivateRoute role={"admin"} component={<AddProduct />} />}
         />
         <Route
+          exact
           path="/product/:id"
-          element={<PrivateRoute  component={<Product />} />}
+          element={<PrivateRoute component={<Product />} />}
         />
         <Route
           path="/panier"
-          element={<PrivateRoute  component={<Panier />} />}
+          element={<PrivateRoute component={<Panier />} />}
         />
       </ComponentRoutes>
     </BrowserRouter>
