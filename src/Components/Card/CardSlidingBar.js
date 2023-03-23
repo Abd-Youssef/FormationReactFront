@@ -7,7 +7,7 @@ function CardSlidingBar(props) {
   return (
     <div className="text-center width-75 height-450px flex space-between  column-direction m-16 border">
       <Link to={"/product/"+props.link}  className="overflow">
-        <img src={product} className="width-50 overflow py-16" />
+        <img src={props.image} className="width-50 overflow py-16" />
         {props.name && <h3 className="m-4 blueFont"> {props.name}</h3>}
         {props.description && <p className="m-4"> {props.description}</p>}
         {props.price && <h1 className="m-4 red">{props.price} DT</h1>}

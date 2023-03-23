@@ -72,6 +72,7 @@ export default function Products() {
                 price={el.price}
                 name={el.name}
                 description={el.description}
+                image={el.image?.url}
                 stock={
                   panier.filter((el2) => el._id === el2._id).length
                     ? el.stock

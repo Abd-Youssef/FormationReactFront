@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useParams,useLocation} from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { getProduct } from "../../Api/Api";
 import product from "../../Assets/product.png";
 import Button from "../../Components/Button/Button";
@@ -17,6 +17,7 @@ function Product() {
     if (response.status === 200) {
       setData(response.data);
     }
+    console.log(response.data.image.url);
   };
 
   const location = useLocation();
@@ -25,27 +26,25 @@ function Product() {
     getSingleProduct();
   }, [location]);
 
-
-  
   return (
     <div>
       <div className="flex  justify-content column-direction  align-center">
-      {stateSuccess === true ? (
-        <div
-          className={
-            "flex  justify-content align-center  mx-16 bg-green border width-50 height-50px"
-          }
-        >
-          <label className="white">
-            SUCCESS : le produit est ajouté aux <b>PANIER</b> avec succés{" "}
-          </label>
-        </div>
-      ) : (
-        <></>
-      )}
+        {stateSuccess === true ? (
+          <div
+            className={
+              "flex  justify-content align-center  mx-16 bg-green border width-50 height-50px"
+            }
+          >
+            <label className="white">
+              SUCCESS : le produit est ajouté aux <b>PANIER</b> avec succés{" "}
+            </label>
+          </div>
+        ) : (
+          <></>
+        )}
         <div className="flex width-75 height-100 border  m-16  ">
           <div className=" flex justify-content align-center width-50  overflow px-16 py-16 bg-light ">
-            <img src={product} className="width-75 hover " />
+            <img src={data.image?.url} className="width-75 hover " />
           </div>
           <div className=" flex  column-direction space-between width-50 overflow px-16 py-16 ">
             <div className=" justify-content align-center  ">
@@ -76,8 +75,17 @@ function Product() {
                   ? " m-0 px-16 py-16 button bg-green"
                   : "m-0 px-16 py-16 button bg-gold"
               }
-              name={data.stock > 0 && stateSuccess != true  ? "Ajouter au panier" :(stateSuccess == true ? "Produit ajouté aux panier":"Epuisé") }
-              onClick={() => {dispatch(AddItem(data)); setstateSuccess(true)}}
+              name={
+                data.stock > 0 && stateSuccess != true
+                  ? "Ajouter au panier"
+                  : stateSuccess == true
+                  ? "Produit ajouté aux panier"
+                  : "Epuisé"
+              }
+              onClick={() => {
+                dispatch(AddItem(data));
+                setstateSuccess(true);
+              }}
               disabled={data.stock > 0 && stateSuccess != true ? false : true}
             />
           </div>

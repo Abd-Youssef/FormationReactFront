@@ -1,4 +1,5 @@
-import { apiUrl , headers } from "../Config/config";
+import axios from "axios";
+import { apiUrl , headers ,headersFormData} from "../Config/config";
 import STORE from "../Redux/Store";
 const getToken=()=>{
 
@@ -23,17 +24,39 @@ const signIn = async (body)=> {
     return response.json() ;
 }
 
-const addProduct = async (body)=>{
-    const response = await fetch ( apiUrl+"product/add",{
-        method: "POST",
-        body:body,
-        headers:{
-            ...headers,
-            "Authorization":"Bearer "+getToken(),
-        }    
-    })
+// await axios.post(apiUrl + "product/add", body, {
+//     headers: {
+//       ...headersFormData,
+//       "Authorization": "Bearer " + getToken(),
+//     },
+//   })
+//   .then(function (response) {
+//     console.log(response);
+//     return response.data ;
+//   })
+//   .catch(function (error) {
+//     console.log(error.response);
+//     throws error.response;
+//   })
 
-    return response.json() ;
+const addProduct = async (body)=>{
+    try {
+        const response = await axios ( {
+            method: "POST",
+            url : apiUrl+"product/add",
+            data:body,
+            headers:{
+                ...headersFormData,
+                "Authorization":"Bearer "+getToken(),
+            }    
+        })
+    
+        return response.data ;
+        
+    } catch (error) {
+        console.log("error",error);
+        return error.response.data;
+    }
 
 }
 const showProduct = async ()=> {

@@ -15,6 +15,14 @@ export default function AddProduct() {
     price: "",
     category: "",
     stock: "",
+    imageURL:"",
+    image:"",
+  });
+  const [image, setImage] = useState({
+    image: ""
+  });
+  const [imageURL, setimageURL] = useState({
+    imageURL: ""
   });
   const [stateCategorie, setstateCategorie] = useState();
   const onChange = (e, key) => {
@@ -23,20 +31,57 @@ export default function AddProduct() {
       [key]: e.target.value,
     });
   };
+  const onChangeImage = (e, key) => {
+    setImage({
+      [key]: e.target.files[0],
+    });
+    // setimageURL({
+    //   imageURL: URL.createObjectURL(e.target.files[0]),
+    // });
+    TransformFileData(e.target.files[0]);
+    console.log("productImg",productImg);
+  };
   const onChangeCategory = (e) => {
     setstateCategorie(e.target.value);
   };
+
+
+  const [productImg, setProductImg] = useState();
+  const TransformFileData = (file) => {
+    const reader = new FileReader();
+
+    if (file) {
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setProductImg(reader.result);
+        setimageURL({
+          imageURL: reader.result,
+        });
+        console.log("aaa",productImg);
+      };
+    } else {
+      setProductImg("");
+
+    }
+  };
+
   const onAdd = async () => {
-    const response = await addProduct(
-      JSON.stringify({
-        name: state.name,
-        description: state.description,
-        price: state.price,
-        category: state.category,
-        stock: state.stock,
-      })
-    );
-    console.log(response);
+    const formData = new FormData();
+    formData.append("name", state.name);
+    formData.append("description", state.description);
+    formData.append("price", state.price);
+    formData.append("category", state.category);
+    formData.append("stock", state.stock);
+    formData.append("imageURL", imageURL.imageURL);
+    formData.append("image",image.image);
+
+    console.log("file",image);
+    for (const [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+    console.log("dfdfd");
+    const response = await addProduct(formData );
+    console.log("response",response);
     if (response.status === 201) {
       //use navigate
       //navigate("/product");
@@ -47,6 +92,11 @@ export default function AddProduct() {
         price: "",
         category: "",
         stock: "",
+        image:"",
+        imageURL:""
+      });
+      setImage({
+        image:""
       });
       setstateCategorie();
     } else {
@@ -189,6 +239,14 @@ export default function AddProduct() {
           value={state.stock}
           type={"number"}
         />
+        <Input
+          className={""}
+          label={"Image"}
+          onChange={(e) => {onChangeImage(e, "image")  ;onChange(e, "image")}}
+          value={state.image}
+          type={"file"}
+        />
+          <img src={productImg} className="width-25  " />
         <Button
           onClick={onAdd}
           name={"Ajouter un Produit"}

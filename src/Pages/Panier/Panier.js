@@ -42,6 +42,7 @@ export default function Panier() {
             name={el.name}
             description={el.description}
             number={el.count}
+            image={el.image?.url}
             add={() => dispatch(IncrementProduct(el))}
             minus={() => dispatch(DesincrementProduct(el))}
             exist={true}
